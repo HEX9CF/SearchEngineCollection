@@ -1,71 +1,87 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8 />
-		<title>搜索引擎大全 - Search Engine Collection</title>
-		<script src="static/js/jquery-3.1.1.min.js"></script>
-		<link rel="stylesheet" href="static/bootstrap/css/bootstrap.css" />
-		<script src="static/bootstrap/js/bootstrap.js"></script>
-		<meta name="title" content="搜索引擎大全 - Search Engine Collection" />
-		<meta name="keywords" content="搜索 搜索引擎 搜索大全 搜索引擎大全" />
-		<meta name="description" content="搜索引擎大全提供多个搜索引擎，可以快速地找到合适的搜索工具。" />
-		<style>
-			body {
-				background-color: #fff;
-			}
-		</style>
-	</head>
-	<body>
-	<div class="container">
-		<nav class="navbar navbar-inverse">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2" aria-expanded="false">
-						<span class="sr-only"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="#">
-						<img alt="icon" src="favicon.ico">
-					</a>
-					<a class="navbar-brand" href="#">搜索引擎大全 - Search Engine Collection</a>
-				</div>
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-					<ul class="nav navbar-nav navbar-right" >
-						<li><a onclick="AddFavorite(window.location,document.title)" href="javascript:void(0)"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>&nbsp;收藏本站</a></li>
-						<li><a onclick="SetHome(window.location)" href="javascript:void(0)"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>&nbsp;设为首页</a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-		<br><br><br><br>
-		<div class="col-md-5"></div>
-		<div class="col-md-2" style="text-align: center;"><h3>搜索引擎大全</h3>Search Engine Collection</div>
-		<div class="col-md-5"></div>
-	</div>
-	<br><br>
-	<div class="container">
-		<div class="col-md-1"></div>
-		<div class="col-md-10">
-			<ul id="myTabs" class="nav nav-tabs" role="tablist">
-			  <li role="presentation" class="active"><a href="#baidu" id="home-tab" role="tab" data-toggle="tab" aria-controls="baidu" aria-expanded="true">百度</a></li>
-			  <li role="presentation" class=""><a href="#360" role="tab" id="profile-tab" data-toggle="tab" aria-controls="360" aria-expanded="false">360</a></li>
-			  <li role="presentation" class=""><a href="#sogou" role="tab" id="profile-tab" data-toggle="tab" aria-controls="sogou" aria-expanded="false">搜狗</a></li>
-			  <li role="presentation" class=""><a href="#google" role="tab" id="profile-tab" data-toggle="tab" aria-controls="sogou" aria-expanded="false">谷歌</a></li>
-			  <li role="presentation" class=""><a href="#bing" role="tab" id="profile-tab" data-toggle="tab" aria-controls="bing" aria-expanded="false">必应</a></li>
-			  <li role="presentation" class=""><a href="#yahoo" role="tab" id="profile-tab" data-toggle="tab" aria-controls="yahoo" aria-expanded="false">雅虎</a></li>
-			  <li role="presentation" class=""><a href="#chinaso" role="tab" id="profile-tab" data-toggle="tab" aria-controls="taobao" aria-expanded="false">国搜</a></li>
-			  <li role="presentation" class=""><a href="#youku" role="tab" id="profile-tab" data-toggle="tab" aria-controls="taobao" aria-expanded="false">优酷</a></li>
-			  <li role="presentation" class=""><a href="#taobao" role="tab" id="profile-tab" data-toggle="tab" aria-controls="taobao" aria-expanded="false">淘宝</a></li>
-			</ul>
-				<div id="myTabContent" class="tab-content">
-				  <div role="tabpanel" class="tab-pane fade active in" id="baidu" aria-labelledby="home-tab"><br>
-					<div class="col-md-0"></div>
-					  <div class="col-md-2"><img width="auto" height="34px" src="./img/baidu.png" alt="Baidu" align="left" border="0"></div>
-						<form action="https://www.baidu.com/s" method="get" target="_blank">
-							<div class="col-md-8"><div class="panel"><input type="text" class="form-control" onfocus="checkHttps" name="wd"  size="30" placeholder="百度搜索..." baiduSug="1"></div></div>
-							<input type="submit" class="btn btn-default input-group-addon" style="
+<head>
+    <meta charset="utf-8"/>
+    <title>搜索引擎大全 - Search Engine Collection</title>
+    <script src="static/js/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.css"/>
+    <script src="static/bootstrap/js/bootstrap.js"></script>
+    <meta name="title" content="搜索引擎大全 - Search Engine Collection"/>
+    <meta name="keywords" content="搜索 搜索引擎 搜索大全 搜索引擎大全"/>
+    <meta name="description" content="搜索引擎大全提供多个搜索引擎，可以快速地找到合适的搜索工具。"/>
+    <style>
+        body {
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-2" aria-expanded="false">
+                    <span class="sr-only"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img alt="icon" src="favicon.ico">
+                </a>
+                <a class="navbar-brand" href="#">搜索引擎大全 - Search Engine Collection</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a onclick="AddFavorite(window.location,document.title)" href="javascript:void(0)"><span
+                            class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>&nbsp;收藏本站</a></li>
+                    <li><a onclick="SetHome(window.location)" href="javascript:void(0)"><span
+                            class="glyphicon glyphicon-file" aria-hidden="true"></span>&nbsp;设为首页</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br><br><br><br>
+    <div class="col-md-5"></div>
+    <div class="col-md-2" style="text-align: center;"><h3>搜索引擎大全</h3>Search Engine Collection</div>
+    <div class="col-md-5"></div>
+</div>
+<br><br>
+<div class="container">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <ul id="myTabs" class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#baidu" id="home-tab" role="tab" data-toggle="tab"
+                                                      aria-controls="baidu" aria-expanded="true">百度</a></li>
+            <li role="presentation" class=""><a href="#360" role="tab" id="profile-tab" data-toggle="tab"
+                                                aria-controls="360" aria-expanded="false">360</a></li>
+            <li role="presentation" class=""><a href="#sogou" role="tab" id="profile-tab" data-toggle="tab"
+                                                aria-controls="sogou" aria-expanded="false">搜狗</a></li>
+            <li role="presentation" class=""><a href="#google" role="tab" id="profile-tab" data-toggle="tab"
+                                                aria-controls="google" aria-expanded="false">谷歌</a></li>
+            <li role="presentation" class=""><a href="#bing" role="tab" id="profile-tab" data-toggle="tab"
+                                                aria-controls="bing" aria-expanded="false">必应</a></li>
+            <li role="presentation" class=""><a href="#yahoo" role="tab" id="profile-tab" data-toggle="tab"
+                                                aria-controls="yahoo" aria-expanded="false">雅虎</a></li>
+            <li role="presentation" class=""><a href="#chinaso" role="tab" id="profile-tab" data-toggle="tab"
+                                                aria-controls="chinaso" aria-expanded="false">国搜</a></li>
+            <li role="presentation" class=""><a href="#soku" role="tab" id="profile-tab" data-toggle="tab"
+                                                aria-controls="soku" aria-expanded="false">搜库</a></li>
+            <li role="presentation" class=""><a href="#taobao" role="tab" id="profile-tab" data-toggle="tab"
+                                                aria-controls="taobao" aria-expanded="false">淘宝</a></li>
+        </ul>
+        <div id="myTabContent" class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="baidu" aria-labelledby="home-tab"><br>
+                <div class="col-md-0"></div>
+                <div class="col-md-2"><h4>百度搜索</h4><!--<img width="auto" height="34px" src="img/baidu.png" alt="baidu" align="left"
+                                           border="0">--></div>
+                <form action="https://www.baidu.com/s" method="get" target="_blank">
+                    <div class="col-md-8">
+                        <div class="panel"><input type="text" class="form-control" onfocus="checkHttps" name="wd"
+                                                  size="30" placeholder="百度搜索..." baiduSug="1"></div>
+                    </div>
+                    <input type="submit" class="btn btn-default input-group-addon" style="
 							width: 100px;
 							height: 34px;
 							color: #fff;
@@ -75,16 +91,20 @@
 							outline: medium;
 							-webkit-appearance: none;
 							-webkit-border-radius: 0;"
-							value="百度搜索">
-						</form>
-				  </div>
+                           value="百度搜索">
+                </form>
+            </div>
 
-				  <div role="tabpanel" class="tab-pane fade" id="360" aria-labelledby="profile-tab"><br>
-					<div class="col-md-0"></div>
-					  <div class="col-md-2"><img width="auto" height="34px" src="./img/360.png" alt="360" align="left" border="0"></div>
-						<form action="https://www.so.com/s" method="get" target="_blank">
-							<div class="col-md-8"><div class="panel"><input type="text" class="form-control" onfocus="checkHttps" name="q"  size="30" placeholder="360搜索..." baiduSug="1"></div></div>
-							<input type="submit" class="btn btn-default input-group-addon" style="
+            <div role="tabpanel" class="tab-pane fade" id="360" aria-labelledby="profile-tab"><br>
+                <div class="col-md-0"></div>
+                <div class="col-md-2"><h4>360搜索</h4><!--<img width="auto" height="34px" src="img/360.png" alt="360" align="left"
+                                           border="0">--></div>
+                <form action="https://www.so.com/s" method="get" target="_blank">
+                    <div class="col-md-8">
+                        <div class="panel"><input type="text" class="form-control" onfocus="checkHttps" name="q"
+                                                  size="30" placeholder="360搜索..."></div>
+                    </div>
+                    <input type="submit" class="btn btn-default input-group-addon" style="
 							width: 100px;
 							height: 34px;
 							color: #fff;
@@ -94,15 +114,19 @@
 							outline: medium;
 							-webkit-appearance: none;
 							-webkit-border-radius: 0;"
-							value="搜一下">
-						</form>
-				  </div>
+                           value="360搜索">
+                </form>
+            </div>
 
-				  <div role="tabpanel" class="tab-pane fade" id="sogou" aria-labelledby="profile-tab"><br>
-					  <div class="col-md-2"><img width="auto" height="34px" src="./img/sogou.png" alt="sogou" align="left" border="0"></div>
-						<form action="https://www.sogou.com/web" method="get" target="_blank">
-							<div class="col-md-8"><div class="panel"><input type="text" class="form-control" onfocus="checkHttps" name="query"  size="30" placeholder="搜狗搜索..." baiduSug="1"></div></div>
-							<input type="submit" class="btn btn-default input-group-addon" style="
+            <div role="tabpanel" class="tab-pane fade" id="sogou" aria-labelledby="profile-tab"><br>
+                <div class="col-md-2"><h4>搜狗搜索</h4><!--<img width="auto" height="34px" src="img/sogou.png" alt="sogou" align="left"
+                                           border="0">--></div>
+                <form action="https://www.sogou.com/web" method="get" target="_blank">
+                    <div class="col-md-8">
+                        <div class="panel"><input type="text" class="form-control" onfocus="checkHttps" name="query"
+                                                  size="30" placeholder="搜狗搜索..."></div>
+                    </div>
+                    <input type="submit" class="btn btn-default input-group-addon" style="
 							width: 100px;
 							height: 34px;
 							color: #fff;
@@ -112,15 +136,20 @@
 							outline: medium;
 							-webkit-appearance: none;
 							-webkit-border-radius: 0;"
-							value="搜狗搜索">
-						</form>
-				  </div>
+                           value="搜狗搜索">
+                </form>
+            </div>
 
-				  <div role="tabpanel" class="tab-pane fade" id="google" aria-labelledby="profile-tab"><br>
-					  <div class="col-md-2"><img width="auto" height="34px" src="./img/google.png" alt="google" align="left" border="0"></div>
-						<form action="" method="get" target="_blank">
-							<div class="col-md-8"><div class="panel"><input type="text" class="form-control" onfocus="checkHttps" name="query"  size="30" placeholder="谷歌搜索暂时无法使用" baiduSug="1" disabled></div></div>
-							<input type="submit" class="btn btn-default input-group-addon" style="
+            <div role="tabpanel" class="tab-pane fade" id="google" aria-labelledby="profile-tab"><br>
+                <div class="col-md-2"><h4>Google</h4><!--<img width="auto" height="34px" src="img/google.png" alt="google" align="left"
+                                           border="0">--></div>
+                <form action="#" method="get" target="_blank">
+                    <div class="col-md-8">
+                        <div class="panel"><input type="text" class="form-control" onfocus="checkHttps" name="query"
+                                                  size="30" placeholder="暂时无法使用" disabled>
+                        </div>
+                    </div>
+                    <input type="submit" class="btn btn-default input-group-addon" style="
 							width: 100px;
 							height: 34px;
 							color: #fff;
@@ -130,16 +159,20 @@
 							outline: medium;
 							-webkit-appearance: none;
 							-webkit-border-radius: 0;"
-							value="谷歌搜索" disabled>
-						</form>
-				  </div>
+                           value="谷歌搜索" disabled>
+                </form>
+            </div>
 
-				  <div role="tabpanel" class="tab-pane fade" id="bing" aria-labelledby="profile-tab"><br>
-					<div class="col-md-0"></div>
-					  <div class="col-md-2"><img width="auto" height="34px" src="./img/bing.png" alt="bing" align="left" border="0"></div>
-						<form action="http://cn.bing.com/search" method="get" target="_blank">
-							<div class="col-md-8"><div class="panel"><input type="text" class="form-control" onfocus="checkHttps" name="q"  size="30" placeholder="必应搜索..." baiduSug="1"></div></div>
-							<input type="submit" class="btn btn-default input-group-addon" style="
+            <div role="tabpanel" class="tab-pane fade" id="bing" aria-labelledby="profile-tab"><br>
+                <div class="col-md-0"></div>
+                <div class="col-md-2"><h4>Bing</h4><!--<img width="auto" height="34px" src="img/bing.png" alt="bing" align="left"
+                                           border="0">--></div>
+                <form action="https://cn.bing.com/search" method="get" target="_blank">
+                    <div class="col-md-8">
+                        <div class="panel"><input type="text" class="form-control" onfocus="checkHttps" name="q"
+                                                  size="30" placeholder="必应搜索..."></div>
+                    </div>
+                    <input type="submit" class="btn btn-default input-group-addon" style="
 							width: 100px;
 							height: 34px;
 							color: #fff;
@@ -149,17 +182,22 @@
 							outline: medium;
 							-webkit-appearance: none;
 							-webkit-border-radius: 0;"
-							value="必应搜索">
-						</form>
-				  </div>
+                           value="必应搜索">
+                </form>
+            </div>
 
-				  <div role="tabpanel" class="tab-pane fade" id="yahoo" aria-labelledby="profile-tab"><br>
-					<div class="col-md-0"></div>
-					  <div class="col-md-2"><img width="auto" height="34px" src="./img/yahoo.png" alt="yahoo" align="left" border="0"></div>
-						<form
-							action="https://search.yahoo.com/search;_ylt=A0LEVyZltvFYEIsApUSl87UF" method="get" target="_blank">
-							<div class="col-md-8"><div class="panel"><input type="text" class="form-control" onfocus="checkHttps" name="q"  size="30" placeholder="雅虎搜索..." baiduSug="1"></div></div>
-							<input type="submit" class="btn btn-default input-group-addon" style="
+            <div role="tabpanel" class="tab-pane fade" id="yahoo" aria-labelledby="profile-tab"><br>
+                <div class="col-md-0"></div>
+                <div class="col-md-2"><h4>Yahoo</h4><!--<img width="auto" height="34px" src="img/yahoo.png" alt="yahoo" align="left"
+                                           border="0">--></div>
+                <form
+                        action="https://search.yahoo.com/search;_ylt=A0LEVyZltvFYEIsApUSl87UF" method="get"
+                        target="_blank">
+                    <div class="col-md-8">
+                        <div class="panel"><input type="text" class="form-control" onfocus="checkHttps" name="q"
+                                                  size="30" placeholder="雅虎搜索..."></div>
+                    </div>
+                    <input type="submit" class="btn btn-default input-group-addon" style="
 							width: 100px;
 							height: 34px;
 							color: #fff;
@@ -169,17 +207,21 @@
 							outline: medium;
 							-webkit-appearance: none;
 							-webkit-border-radius: 0;"
-							value="雅虎搜索">
-						</form>
-				  </div>
+                           value="雅虎搜索">
+                </form>
+            </div>
 
-				  <div role="tabpanel" class="tab-pane fade"
-						id="chinaso" aria-labelledby="profile-tab"><br>
-					<div class="col-md-0"></div>
-					  <div class="col-md-2"><img width="auto" height="34px" src="./img/chinaso.png" alt="chinaso" align="left" border="0"></div>
-						<form action="http://www.chinaso.com/search/pagesearch.htm" method="get" target="_blank">
-							<div class="col-md-8"><div class="panel"><input type="text" class="form-control" onfocus="checkHttps" name="q"  size="30" placeholder="中国搜索..." baiduSug="1"></div></div>
-							<input type="submit" class="btn btn-default input-group-addon" style="
+            <div role="tabpanel" class="tab-pane fade"
+                 id="chinaso" aria-labelledby="profile-tab"><br>
+                <div class="col-md-0"></div>
+                <div class="col-md-2"><h4>中国搜索</h4><!--<img width="auto" height="34px" src="img/chinaso.png" alt="chinaso" align="left"
+                                           border="0">--></div>
+                <form action="http://www.chinaso.com/search/pagesearch.htm" method="get" target="_blank">
+                    <div class="col-md-8">
+                        <div class="panel"><input type="text" class="form-control" onfocus="checkHttps" name="q"
+                                                  size="30" placeholder="中国搜索..."></div>
+                    </div>
+                    <input type="submit" class="btn btn-default input-group-addon" style="
 							width: 100px;
 							height: 34px;
 							color: #fff;
@@ -189,16 +231,21 @@
 							outline: medium;
 							-webkit-appearance: none;
 							-webkit-border-radius: 0;"
-							value="中国搜索">
-						</form>
-				  </div>
+                           value="中国搜索">
+                </form>
+            </div>
 
-				  <div role="tabpanel" class="tab-pane fade" id="youku" aria-labelledby="profile-tab"><br>
-					<div class="col-md-0"></div>
-					  <div class="col-md-2"><img width="auto" height="34px" src="./img/youku.png" alt=""youku" align="left" border="0"></div>
-						<form action="http://www.soku.com/search_video/" method="get" target="_blank">
-							<div class="col-md-8"><div class="panel"><input type="text" class="form-control" onfocus="checkHttps" name="q"  size="30" placeholder="优酷搜索..." baiduSug="1"></div></div>
-							<input type="submit" class="btn btn-default input-group-addon" style="
+            <div role="tabpanel" class="tab-pane fade" id="soku" aria-labelledby="profile-tab"><br>
+                <div class="col-md-0"></div>
+                <div class="col-md-2"><h4>搜库</h4><!--<img width="auto" height="34px" src="img/soku.png" alt="soku" align="left"
+                                           border="0">-->
+                </div>
+                <form action="http://www.soku.com/search_video/" method="get" target="_blank">
+                    <div class="col-md-8">
+                        <div class="panel"><input type="text" class="form-control" onfocus="checkHttps" name="q"
+                                                  size="30" placeholder="搜库搜索..."></div>
+                    </div>
+                    <input type="submit" class="btn btn-default input-group-addon" style="
 							width: 100px;
 							height: 34px;
 							color: #fff;
@@ -208,16 +255,20 @@
 							outline: medium;
 							-webkit-appearance: none;
 							-webkit-border-radius: 0;"
-							value="优酷搜索">
-						</form>
-				  </div>
+                           value="搜库搜索">
+                </form>
+            </div>
 
-				  <div role="tabpanel" class="tab-pane fade" id="taobao" aria-labelledby="profile-tab"><br>
-					<div class="col-md-0"></div>
-					  <div class="col-md-2"><img width="auto" height="34px" src="./img/taobao.png" alt="taobao" align="left" border="0"></div>
-						<form action="https://s.taobao.com/search" method="get" target="_blank">
-							<div class="col-md-8"><div class="panel"><input type="text" class="form-control" onfocus="checkHttps" name="q"  size="30" placeholder="淘宝搜索..." baiduSug="1"></div></div>
-							<input type="submit" class="btn btn-default input-group-addon" style="
+            <div role="tabpanel" class="tab-pane fade" id="taobao" aria-labelledby="profile-tab"><br>
+                <div class="col-md-0"></div>
+                <div class="col-md-2"><h4>淘宝</h4><!--<img width="auto" height="34px" src="img/taobao.png" alt="taobao" align="left"
+                                           border="0">--></div>
+                <form action="https://s.taobao.com/search" method="get" target="_blank">
+                    <div class="col-md-8">
+                        <div class="panel"><input type="text" class="form-control" onfocus="checkHttps" name="q"
+                                                  size="30" placeholder="淘宝搜索..."></div>
+                    </div>
+                    <input type="submit" class="btn btn-default input-group-addon" style="
 							width: 100px;
 							height: 34px;
 							color: #fff;
@@ -227,34 +278,37 @@
 							outline: medium;
 							-webkit-appearance: none;
 							-webkit-border-radius: 0;"
-							value="淘宝搜索">
-						</form>
-				  </div>
-			</div>
-		</div>
-	</div>
-	<br><br><br><br><br><br><br><br><br><br>
-	</body>
-	  <script type="text/javascript" language="javascript">
-        function AddFavorite(sURL, sTitle) {
-            sURL = encodeURI(sURL); 
-			try{   
-				window.external.addFavorite(sURL, sTitle);   
-			}catch(e) {   
-				try{   
-					window.sidebar.addPanel(sTitle, sURL, "");   
-				}catch (e) {   
-					alert("您的浏览器不支持自动收藏功能，请在本页面使用Ctrl+D进行添加收藏，或手动在浏览器里进行设置。");
-				}   
-			}
-		}
-		function SetHome(url){
-			if (document.all) {
-				document.body.style.behavior='url(#default#homepage)';
-				   document.body.setHomePage(url);
-			}else{
-				alert("您的浏览器不支持自动设置本页面为首页功能，请手动在浏览器里设置该页面为首页！");
-			}
-		}
-	</script>
+                           value="淘宝搜索">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br><br><br><br><br><br><br>
+<hr/>
+<div align="middle">Powered by HEX9CF</div>
+</body>
+<script>
+    function AddFavorite(sURL, sTitle) {
+        sURL = encodeURI(sURL);
+        try {
+            window.external.addFavorite(sURL, sTitle);
+        } catch (e) {
+            try {
+                window.sidebar.addPanel(sTitle, sURL, "");
+            } catch (e) {
+                alert("您的浏览器不支持自动收藏功能，请在本页面使用Ctrl+D进行添加收藏，或手动在浏览器里进行设置。");
+            }
+        }
+    }
+
+    function SetHome(url) {
+        if (document.all) {
+            document.body.style.behavior = 'url(#default#homepage)';
+            document.body.setHomePage(url);
+        } else {
+            alert("您的浏览器不支持自动设置本页面为首页功能，请手动在浏览器里设置该页面为首页！");
+        }
+    }
+</script>
 </html>
